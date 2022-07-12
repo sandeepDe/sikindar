@@ -11,10 +11,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreateRequestComponent } from './components/create-request/create-request.component';
 import { RequestListComponent } from './components/request-list/request-list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { TaskListComponent } from './components/task-list/task-list.component';
 @NgModule({
   declarations: [
     DashboardComponent,
     CreateRequestComponent,
+    TaskListComponent,
     RequestListComponent
   ],
 
