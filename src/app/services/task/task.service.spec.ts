@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { TaskService } from './task.service';
@@ -5,8 +6,12 @@ import { TaskService } from './task.service';
 describe('TaskService', () => {
   let service: TaskService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [],
+      imports: [HttpClientModule],
+      providers: []
+    });
     service = TestBed.inject(TaskService);
   });
 
@@ -14,3 +19,4 @@ describe('TaskService', () => {
     expect(service).toBeTruthy();
   });
 });
+TestBed.configureTestingModule({});
