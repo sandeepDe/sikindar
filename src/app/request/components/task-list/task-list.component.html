@@ -1,3 +1,7 @@
+<div *ngIf="showLoader" class="loader-container">
+  <mat-spinner class="red" [diameter]="50"></mat-spinner>
+</div>
+
 <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
   <ng-container matColumnDef="requestId">
     <th mat-header-cell *matHeaderCellDef>Request#</th>
@@ -65,3 +69,22 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<!-- <div class="dropdown-container">
+  <div class="cont">
+    <app-dropdown (childData)="getProjectAndContract($event)" label="Talents">
+    </app-dropdown>
+  </div>
+</div> -->
+
+<br />
+<br />
+
+<div class="cont">
+  <app-dropdown
+    label="project"
+    (childData)="gettingDataFromChild($event)"
+    [parentData]="projectData"
+  >
+  </app-dropdown>
+</div>

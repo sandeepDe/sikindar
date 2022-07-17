@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { TaskService } from 'src/app/services/task/task.service';
 import { TaskListComponent } from './task-list.component';
@@ -13,7 +14,12 @@ describe('TaskListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TaskListComponent],
-      imports: [MatTableModule, MatIconModule, HttpClientModule],
+      imports: [
+        MatTableModule,
+        MatIconModule,
+        HttpClientModule,
+        MatProgressSpinnerModule
+      ],
       providers: []
     }).compileComponents();
 

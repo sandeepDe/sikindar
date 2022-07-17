@@ -1,3 +1,7 @@
+<div *ngIf="showLoader" class="loader-container">
+  <mat-spinner class="red" [diameter]="50"></mat-spinner>
+</div>
+
 <div class="table-container">
   <table mat-table [dataSource]="requests" class="mat-elevation-z8">
     <ng-container matColumnDef="requestId">

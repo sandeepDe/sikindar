@@ -1,6 +1,10 @@
 import { MatPaginator } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  NgModule,
+  NO_ERRORS_SCHEMA
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -23,6 +27,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
   imports: [
     CommonModule,
     SharedModule,
+
     UserModule,
     MatIconModule,
     MatButtonModule,
@@ -30,6 +35,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
     RequestRoutingModule,
     HttpClientModule
   ],
-  exports: [RequestListComponent]
+  exports: [RequestListComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class RequestModule {}

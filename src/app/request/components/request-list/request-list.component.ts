@@ -10,6 +10,10 @@ import { RequestView } from 'src/app/models/requestView';
 export class RequestListComponent {
   //dummy data
 
+  showLoader: boolean = false;
+  /* as of now we are not making any api call, not implemented loader here 
+   For implementing loader please refer task-list component*/
+
   headers = [
     'requestId',
     'production',

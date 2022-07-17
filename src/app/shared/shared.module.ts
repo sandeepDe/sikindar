@@ -1,4 +1,4 @@
-import { RequestListComponent } from './../request/components/request-list/request-list.component';
+// import { RequestListComponent } from './../request/components/request-list/request-list.component';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   NgModule,
@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { LayoutComponent } from './components/layout/layout.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,6 +19,23 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { BoxContainerComponent } from './components/box-container/box-container.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LayoutComponent } from './components/layout/layout.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+const material = [
+  CommonModule,
+  ReactiveFormsModule,
+  MatAutocompleteModule,
+  MatCardModule,
+  MatToolbarModule,
+  MatProgressSpinnerModule,
+  MatTableModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatProgressBarModule,
+  MatInputModule,
+  MatButtonModule
+];
 
 @NgModule({
   declarations: [
@@ -29,27 +45,8 @@ import { MatTableModule } from '@angular/material/table';
     DropdownComponent,
     BoxContainerComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
-    RouterModule.forChild([])
-  ],
-  exports: [
-    LayoutComponent,
-    HeaderComponent,
-    DropdownComponent,
-    MatTableModule,
-    MatIconModule,
-    BoxContainerComponent
-  ],
+  imports: [...material, RouterModule.forChild([])],
+  exports: [...material, HeaderComponent, LayoutComponent, DropdownComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class SharedModule {}

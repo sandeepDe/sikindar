@@ -71,3 +71,10 @@ th.mat-header-cell:last-child {
   padding: 0px;
   margin: 0px;
 }
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

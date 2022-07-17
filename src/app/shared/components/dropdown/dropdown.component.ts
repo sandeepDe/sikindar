@@ -1,11 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-export interface DropdownOption {
-  value: string;
-  viewValue: string;
-}
+import { DropdownOption } from 'src/app/models/dropdown';
 
 @Component({
   selector: 'app-dropdown',
@@ -13,33 +11,24 @@ export interface DropdownOption {
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent implements OnInit {
+  contractNumber = '';
+
+  @Output() childData: EventEmitter<string> = new EventEmitter();
+  sendInputValue = (inputValue: string) => {
+    this.childData.emit(inputValue);
+  };
+
   @Input()
   label: string = 'Pick one';
-
-  foods: DropdownOption[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
-  ];
 
   @Input() parentData: DropdownOption[] = [];
   myControl = new FormControl('');
 
-  filteredOptions!: Observable<DropdownOption[]>;
   constructor() {}
 
-  ngOnInit(): void {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filter(value || ''))
-    );
-  }
+  ngOnInit(): void {}
 
-  private _filter(value: string): DropdownOption[] {
-    const filterValue = value.toLowerCase();
-
-    return this.foods.filter((food) =>
-      food.value.toLowerCase().includes(filterValue)
-    );
+  onSelectionChanged(event: MatAutocompleteSelectedEvent) {
+    this.contractNumber = event.option.value;
   }
 }
